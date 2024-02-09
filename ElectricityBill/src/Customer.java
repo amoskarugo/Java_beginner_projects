@@ -1,73 +1,73 @@
 public class Customer {
 
+    static final double price_per_unit;
+    public static double discount;
+    private static  double total;
+    private static final long meter_number;
+    private final static double usage;
 
-    private long meter_number;
-    private final double usage;
+    private static double arrears;
+    private static double BillOverpaid;
 
-    private double arrears;
-    private double BillOverpaid;
-
-    private double currentMeterReading;
-    private double priorMeterReading;
-
-    public Billing billing;
-
-    public Customer(long meter_number,
-                    double arrears,
-                    double currentMeterReading, double priorMeterReading) {
-
-        this.meter_number = meter_number;
-        this.arrears = arrears;
-        this.currentMeterReading = currentMeterReading;
-        this.priorMeterReading = priorMeterReading;
-        this.usage = this.currentMeterReading - this.priorMeterReading;
-        this.BillOverpaid = this.arrears > 0 ? this.arrears : 0;
-
+    private static final double currentMeterReading;
+    private static final double priorMeterReading;
+    static {
+        arrears = 0;
+        meter_number = 378346120098912L;
+        currentMeterReading = 16712;
+        priorMeterReading = 19324;
+        BillOverpaid = 0;
+        price_per_unit = 1.67;
+        discount = 0.07;
+        usage = priorMeterReading - currentMeterReading;
+        total =  ((usage * price_per_unit) - calculateDiscount(usage));
     }
+
+//    public Customer(long meter_number,
+//                    double currentMeterReading, double priorMeterReading) {
+//
+//        this.meter_number = meter_number;
+//        this.currentMeterReading = currentMeterReading;
+//        this.priorMeterReading = priorMeterReading;
+//        this.usage = this.priorMeterReading - this.currentMeterReading;
+//
+//    }
 
     public long getMeterNumber() {
-        return this.meter_number;
+        return meter_number;
     }
 
-    public void setMeterNumber(long meter_number) {
-        this.meter_number = meter_number;
-    }
 
     public double getUsage() {
-        return this.usage;
+        return usage;
     }
 
     public double getArrears() {
         return arrears;
     }
 
-    public void setArrears(double arrears) {
-        this.arrears = arrears;
-    }
 
     public long getMeter_number() {
         return meter_number;
     }
 
-    public void setMeter_number(long meter_number) {
-        this.meter_number = meter_number;
+    public double getDiscount() {
+        return discount;
+    }
+
+    public static double getTotal() {
+        return total;
     }
 
     public double getCurrentMeterReading() {
         return currentMeterReading;
     }
 
-    public void setCurrentMeterReading(double currentMeterReading) {
-        this.currentMeterReading = currentMeterReading;
-    }
 
     public double getPriorMeterReading() {
         return priorMeterReading;
     }
 
-    public void setPriorMeterReading(double priorMeterReading) {
-        this.priorMeterReading = priorMeterReading;
-    }
 
     public double getBillOverpaid() {
         return BillOverpaid;
@@ -77,15 +77,29 @@ public class Customer {
         BillOverpaid = billOverpaid;
     }
 
-    public double totalBill(Billing billing){
-        return (billing.getPrice_per_unit() * this.getUsage());
-    }
 
+   public static double calculateDiscount(double units){
+        //discount of $0.07 per unit
+        return (units * 0.07);
+   }
     public void payBill(int amount){
-        double accrued = this.totalBill(billing);
+      if (arrears > 0){
+          arrears -= amount;
+          if (arrears < 0){
+              BillOverpaid = (-1 * arrears);
+              arrears = 0;
+          }
+      }else {
+          arrears += BillOverpaid;
+          total = (arrears + total) - amount;
+          if (total < 0){
+              BillOverpaid = (-1 * total);
+          }else {
+              arrears = total;
+              BillOverpaid = 0;
+          }
+          total = 0;
+      }
 
-        if (this.getArrears() < 0){
-
-        }
     }
 }
