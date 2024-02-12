@@ -8,13 +8,14 @@ public class User {
     private String password;
 
 
-    public static   ArrayList<Book> books = new ArrayList<>();
+    private ArrayList<Book> books;
 
     public User(String email, String name, String type, String password) {
         this.email = email;
         this.name = name;
         this.type = type;
         this.password = password;
+        this.books = new ArrayList<Book>();
     }
 
     public String getEmail() {
@@ -41,12 +42,12 @@ public class User {
         this.type = type;
     }
 
-    public static ArrayList<Book> getBooks() {
-        return books;
+    public ArrayList<Book> getBooks() {
+        return this.books;
     }
 
-    public static void setBooks(ArrayList<Book> books) {
-        User.books = books;
+    public void setBooks(Book book) {
+        this.books.add(book);
     }
 
     public String getPassword() {
