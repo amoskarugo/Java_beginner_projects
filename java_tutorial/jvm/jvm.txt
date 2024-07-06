@@ -1,0 +1,7 @@
+JVM - it is the java runtime engine, provides the necessary services and the environment to run the application code.
+acts as intermediary between the hardware and the application code
+- services:
+    - memory management
+    - I/O operations
+    - error handling
+- jvm calls main method present in java code
