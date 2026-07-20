@@ -21,6 +21,11 @@ class HelloWorld {
         NumberGuessingGame game = new NumberGuessingGame();
         game.guess();
 
+        String s = "Example";
+
+
+
+
     }
 
 
