@@ -1,18 +1,40 @@
 package org.example.Domain.model;
 
 public class Student {
-    private Student(){}
+    public Integer id;
+    public String name;
+    public String email;
+    public Student(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
 
-    public static final String createStudentTable =
-            "CREATE TABLE student IF NOT EXISTS (id SERIAL PRIMARY KEY, name VARCHAR(50), email VARCHAR(50))";
-    public static final String insertIntoStudent =
-            "INSERT INTO student VALUES (?, ?)";
-    public static final String selectStudentById =
-            "SELECT * FROM student WHERE id LIKE ?";
-    public static final String selectStudentByEmail =
-            "SELECT * FROM student WHERE email LIKE ?";
-    public static final String deleteStudentById =
-            "DELETE FROM student WHERE id LIKE ?";
-    public static final String selectAllStudents =
-            "SELECT * FROM student";
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
