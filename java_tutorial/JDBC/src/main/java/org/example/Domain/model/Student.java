@@ -4,10 +4,15 @@ public class Student {
     public Integer id;
     public String name;
     public String email;
-    public Student(Integer id, String name, String email) {
+    public Student(String name, String email) {
         this.name = name;
         this.email = email;
+    }
+
+    public Student(Integer id, String name, String email) {
         this.id = id;
+        this.name = name;
+        this.email = email;
     }
 
     public String getName() {

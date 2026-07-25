@@ -1,7 +1,11 @@
 package org.example;
 
+import org.example.Domain.model.Student;
 import org.example.createSchemas.SqlSchema;
 import org.example.service.StudentService;
+import org.example.service.servicesImpl.StudentServiceImpl;
+
+import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -35,5 +39,17 @@ public class Main {
 //        }
 
 
+
+        //CREATING MULTIPLE STUDENTS IN THE DATABASE
+        List<Student> students = List.of(
+                new Student("Daniel Kiptoo", "daniel.kiptoo@gmail.com"),
+                new Student("Mercy Atieno", "mercy.atieno@gmail.com"),
+                new Student("Peter Kamau", "peter.kamau@gmail.com"),
+                new Student("Lucy Chebet", "lucy.chebet@gmail.com"),
+                new Student("Samuel Mutiso", "samuel.mutiso@gmail.com")
+        );
+
+        StudentServiceImpl studentService = new StudentServiceImpl();
+        students.forEach(studentService::saveStudent);
     }
 }

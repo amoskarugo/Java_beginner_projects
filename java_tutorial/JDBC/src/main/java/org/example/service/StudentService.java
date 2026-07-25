@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface StudentService {
 
-    void createStudent(String name, String email);
+    boolean saveStudent(Student student);
     boolean deleteStudentById(int id);
-    List<Student> getAllStudents();
-    Student getStudentById(int id);
+    List<Student> listAllStudents();
+    Student retrieveStudentById(int id);
 
-    boolean updateStudentById(int id, String name, String email);
+    boolean updateStudentById(int id);
 }
