@@ -1,22 +1,16 @@
 package org.example;
 
-import org.example.Domain.model.Student;
-import org.example.Repo.RunSqlQueries;
 import org.example.createSchemas.SqlSchema;
 import org.example.service.StudentService;
-import org.example.service.servicesImpl.StudentServiceImpl;
-
-import java.sql.Connection;
-import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(SqlSchema.runCreateSchema());
 
-        StudentService studentService = new StudentServiceImpl();
+
+
 //        studentService.createStudent("amos", "karugoamos@gmail.com");
 
 //        if (studentService.deleteStudentById(1)) {

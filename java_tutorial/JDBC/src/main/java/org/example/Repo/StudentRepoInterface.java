@@ -4,11 +4,11 @@ import org.example.Domain.model.Student;
 
 import java.util.List;
 
-public interface StudentRepo {
+public interface StudentRepoInterface {
 
     int  createStudent(Student student);
-    int updateStudent(Student student);
-    int deleteStudent(Student student);
+    int updateStudentById(int id);
+    int deleteStudent(int id);
     Student getStudent(int id);
     List<Student> getAllStudents();
 }

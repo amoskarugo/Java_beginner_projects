@@ -10,8 +10,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-import static org.example.config.DatabaseConfig.connection;
-
 public class SqlSchema {
     private static final Connection connection = DatabaseConfig.getDbConnection();
 
