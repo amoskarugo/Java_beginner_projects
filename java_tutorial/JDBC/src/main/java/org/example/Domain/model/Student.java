@@ -4,9 +4,10 @@ public class Student {
     public Integer id;
     public String name;
     public String email;
-    public Student(String name, String email) {
+    public Student(Integer id, String name, String email) {
         this.name = name;
         this.email = email;
+        this.id = id;
     }
 
     public String getName() {
@@ -27,6 +28,9 @@ public class Student {
 
     public Integer getId() {
         return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override

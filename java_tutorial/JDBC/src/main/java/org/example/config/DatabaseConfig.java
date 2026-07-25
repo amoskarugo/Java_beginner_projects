@@ -15,7 +15,7 @@ public class DatabaseConfig {
     private static final String DRIVER_CLASS = "org.postgresql.Driver";
 
     //create and return a connection object
-    private static Connection connection;
+    public static Connection connection;
 
 
     private DatabaseConfig() {}
