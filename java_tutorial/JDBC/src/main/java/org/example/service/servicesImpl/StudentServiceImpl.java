@@ -46,8 +46,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public boolean updateStudentById(int id) {
-        return false;
+    public boolean updateStudentById(Student student, int id) {
+        return studentRepo.updateStudentById(student, id) > 0;
     }
 }
 

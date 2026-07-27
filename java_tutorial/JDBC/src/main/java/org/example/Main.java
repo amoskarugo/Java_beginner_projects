@@ -48,8 +48,20 @@ public class Main {
         );
 
         StudentServiceImpl studentService = new StudentServiceImpl();
-       // students.forEach(studentService::saveStudent);
-        if (studentService.deleteStudentById(3))
-            System.out.println("Student with id " + 3 + " was deleted!");
+//       // students.forEach(studentService::saveStudent);
+//        if (studentService.deleteStudentById(3))
+//            System.out.println("Student with id " + 3 + " was deleted!");
+
+
+        // UPDATING STUDENT
+
+        Student updatedStudent = new Student("Margret", "wanjiru@gmail.com");
+
+        int id = 9;
+        if (studentService.updateStudentById(updatedStudent, id)){
+            System.out.println("Student with id " + id + " was updated!");
+        }else {
+            System.out.println("Student with id " + id + " was not updated!");
+        }
     }
 }

@@ -7,8 +7,8 @@ import java.util.List;
 public interface StudentRepoInterface {
 
     int  createStudent(Student student);
-    int updateStudentById(int id);
+    int updateStudentById(Student student, int id);
     int deleteStudent(int id);
-    Student getStudent(int id);
+    Student getStudentById(int id);
     List<Student> getAllStudents();
 }

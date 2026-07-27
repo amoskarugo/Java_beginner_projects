@@ -11,5 +11,5 @@ public interface StudentService {
     List<Student> listAllStudents();
     Student retrieveStudentById(int id);
 
-    boolean updateStudentById(int id);
+    boolean updateStudentById(Student student,  int id);
 }

@@ -4,6 +4,7 @@ import org.example.Domain.SqlStatements.SqlQueries;
 import org.example.Domain.model.Student;
 import org.example.Repo.StudentRepoInterface;
 import org.example.config.DatabaseConfig;
+import org.example.exceptions.StudentNotFound;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,11 +35,16 @@ public class StudentRepository implements StudentRepoInterface {
     }
 
     @Override
-    public int updateStudentById(int id) {
+    public int updateStudentById(Student student, int id) {
         int rowsAffected = 0;
+
+        if (getStudentById(id) == null)
+            throw new StudentNotFound("Student with id " + id + " was not found!");
         try {
             ps = con.prepareStatement(SqlQueries.StudentQuery.updateStudentById);
-            ps.setInt(1, id);
+            ps.setString(1, student.getName());
+            ps.setString(2, student.getEmail());
+            ps.setInt(3, id);
             rowsAffected = ps.executeUpdate();
             ps.close();
             return rowsAffected;
@@ -64,7 +70,7 @@ public class StudentRepository implements StudentRepoInterface {
     }
 
     @Override
-    public Student getStudent(int id) {
+    public Student getStudentById(int id) {
         Student student = null;
         try {
             ps = con.prepareStatement(SqlQueries.StudentQuery.selectStudentById);
