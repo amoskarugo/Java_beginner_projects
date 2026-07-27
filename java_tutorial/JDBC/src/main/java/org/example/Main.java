@@ -1,6 +1,8 @@
 package org.example;
 
+import org.example.Domain.model.Course;
 import org.example.Domain.model.Student;
+import org.example.service.servicesImpl.CourseServiceImpl;
 import org.example.service.servicesImpl.StudentServiceImpl;
 
 import java.util.List;
@@ -57,11 +59,16 @@ public class Main {
 
         Student updatedStudent = new Student("Margret", "wanjiru@gmail.com");
 
-        int id = 9;
-        if (studentService.updateStudentById(updatedStudent, id)){
-            System.out.println("Student with id " + id + " was updated!");
-        }else {
-            System.out.println("Student with id " + id + " was not updated!");
-        }
+//        int id = 9;
+//        if (studentService.updateStudentById(updatedStudent, id)){
+//            System.out.println("Student with id " + id + " was updated!");
+//        }else {
+//            System.out.println("Student with id " + id + " was not updated!");
+//        }
+
+
+        CourseServiceImpl courseService = new CourseServiceImpl();
+        List<Course> courses = courseService.getAllCourses();
+        courses.forEach(System.out::println);
     }
 }

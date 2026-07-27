@@ -12,8 +12,6 @@ public class SqlQueries {
                 "INSERT INTO student (name, email) VALUES (?, ?)";
         public static final String selectStudentById =
                 "SELECT * FROM student WHERE id = ?";
-        public static final String selectStudentByEmail =
-                "SELECT * FROM student WHERE email = ?";
         public static final String deleteStudentById =
                 "DELETE FROM student WHERE id = ?";
         public static final String selectAllStudents =
@@ -22,5 +20,21 @@ public class SqlQueries {
                 "UPDATE student SET name = ?, email = ? WHERE id = ?";
 
 
+    }
+
+    public static final class CourseQuery {
+        private CourseQuery() {
+        }
+
+        public static final String createCourse =
+                "INSERT INTO course (name) VALUES (?)";
+        public static final String updateCourseById =
+                "UPDATE course SET name = ? WHERE id = ?";
+        public static final String deleteCourseById =
+                "DELETE FROM course WHERE id = ?";
+        public static final String selectAllCourses =
+                "SELECT * FROM course";
+        public  static final String selectCourseById =
+                "SELECT * FROM course WHERE id = ?";
     }
 }
