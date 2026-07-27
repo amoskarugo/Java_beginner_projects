@@ -58,7 +58,7 @@ public class StudentRepository implements StudentRepoInterface {
             ps.close();
             return rowsAffected;
         }catch (SQLException e){
-            System.out.println("failed to student with id "+ id);
+            System.out.println("Something went wrong!!! deletion operation failed " + e.getMessage());
         }
         return rowsAffected;
     }

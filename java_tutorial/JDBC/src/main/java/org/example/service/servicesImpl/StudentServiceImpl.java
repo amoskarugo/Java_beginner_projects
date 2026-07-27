@@ -2,6 +2,7 @@ package org.example.service.servicesImpl;
 
 import org.example.Domain.model.Student;
 import org.example.Repo.impl.StudentRepository;
+import org.example.exceptions.StudentNotFound;
 import org.example.exceptions.StudentNullPointerException;
 import org.example.service.StudentService;
 
@@ -29,7 +30,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public boolean deleteStudentById(int id) {
-        return false;
+        if (studentRepo.deleteStudent(id) > 0) {
+            return true;
+        }else throw new StudentNotFound("student with id " + id + " does not exist!");
     }
 
     @Override

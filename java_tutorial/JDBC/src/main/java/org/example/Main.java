@@ -1,8 +1,6 @@
 package org.example;
 
 import org.example.Domain.model.Student;
-import org.example.createSchemas.SqlSchema;
-import org.example.service.StudentService;
 import org.example.service.servicesImpl.StudentServiceImpl;
 
 import java.util.List;
@@ -50,6 +48,8 @@ public class Main {
         );
 
         StudentServiceImpl studentService = new StudentServiceImpl();
-        students.forEach(studentService::saveStudent);
+       // students.forEach(studentService::saveStudent);
+        if (studentService.deleteStudentById(3))
+            System.out.println("Student with id " + 3 + " was deleted!");
     }
 }
