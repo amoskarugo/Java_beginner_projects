@@ -2,15 +2,18 @@ package org.example;
 
 import org.example.Domain.model.Course;
 import org.example.Domain.model.Student;
+import org.example.createSchemas.SqlSchema;
 import org.example.service.servicesImpl.CourseServiceImpl;
 import org.example.service.servicesImpl.StudentServiceImpl;
 
+import javax.xml.validation.Schema;
 import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+    SqlSchema.runCreateSchema();
 
 
 
@@ -68,7 +71,7 @@ public class Main {
 
 
         CourseServiceImpl courseService = new CourseServiceImpl();
-        List<Course> courses = courseService.getAllCourses();
+//        List<Course> courses = courseService.getAllCourses();
         Course course = new Course("Bachelors Information Technology");
 //        courses.forEach(System.out::println);
 
@@ -82,11 +85,11 @@ public class Main {
 
         //DELETE COURSE BY ID
 
-        if (courseService.deleteCourse(8)){
-            System.out.println("Course deleted successfully");
-        }else {
-            System.out.println("Course deleting failed");
-        }
+//        if (courseService.deleteCourse(8)){
+//            System.out.println("Course deleted successfully");
+//        }else {
+//            System.out.println("Course deleting failed");
+//        }
 
 //        if (courseService.updateCourse(course, 9)){
 //            System.out.println("Course updated successfully");

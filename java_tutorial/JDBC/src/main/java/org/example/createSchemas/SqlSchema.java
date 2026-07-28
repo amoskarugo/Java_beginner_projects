@@ -25,7 +25,7 @@ public class SqlSchema {
                 }
             }
         }catch (IOException | SQLException e) {
-            System.out.println("Error reading sql schema file");
+            System.out.println("Error reading sql schema file " + e.getMessage());
         }
     }
 }
