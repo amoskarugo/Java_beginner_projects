@@ -69,6 +69,30 @@ public class Main {
 
         CourseServiceImpl courseService = new CourseServiceImpl();
         List<Course> courses = courseService.getAllCourses();
-        courses.forEach(System.out::println);
+        Course course = new Course("Bachelors Information Technology");
+//        courses.forEach(System.out::println);
+
+// adding a course
+//        if (courseService.addCourse(course)){
+//            System.out.println("Course added successfully");
+//        }else {
+//            System.out.println("Course adding failed");
+//        }
+
+
+        //DELETE COURSE BY ID
+
+        if (courseService.deleteCourse(8)){
+            System.out.println("Course deleted successfully");
+        }else {
+            System.out.println("Course deleting failed");
+        }
+
+//        if (courseService.updateCourse(course, 9)){
+//            System.out.println("Course updated successfully");
+//        }else {
+//            System.out.println("Course update failed");
+//        }
+
     }
 }

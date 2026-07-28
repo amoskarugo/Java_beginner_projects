@@ -41,3 +41,10 @@ ALTER TABLE enrollement
         FOREIGN KEY (course_id)
             REFERENCES course(id)
             ON DELETE CASCADE;
+
+CREATE TABLE IF NOT EXISTS unit (
+    unit_id SERIAL PRIMARY KEY,
+    course_id INT NOT NULL,
+    unit_name VARCHAR(100) UNIQUE,
+    FOREIGN KEY (course_id) REFERENCES course(id)
+)

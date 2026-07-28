@@ -1,5 +1,7 @@
 package org.example.config;
 
+import org.example.Domain.model.Course;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -31,7 +33,10 @@ public class DatabaseConfig {
                 * -multiple connection at once
                 * */
                 connection =  DriverManager.getConnection(URL, USERNAME, PASSWORD);
-                System.out.println("connection to database established");
+                //System.out.println("connection to database established");
+
+
+
             }
 
 
