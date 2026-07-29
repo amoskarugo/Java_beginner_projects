@@ -1,6 +1,6 @@
-package org.example.Repo;
+package org.studentmanagementsystem.Repo;
 
-import org.example.Domain.model.Course;
+import org.studentmanagementsystem.Domain.model.Course;
 
 import java.util.List;
 

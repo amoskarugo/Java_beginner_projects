@@ -1,12 +1,11 @@
-package org.example;
+package org.studentmanagementsystem;
 
-import org.example.Domain.model.Course;
-import org.example.Domain.model.Student;
-import org.example.createSchemas.SqlSchema;
-import org.example.service.servicesImpl.CourseServiceImpl;
-import org.example.service.servicesImpl.StudentServiceImpl;
+import org.studentmanagementsystem.Domain.model.Course;
+import org.studentmanagementsystem.Domain.model.Student;
+import org.studentmanagementsystem.createSchemas.SqlSchema;
+import org.studentmanagementsystem.service.servicesImpl.CourseServiceImpl;
+import org.studentmanagementsystem.service.servicesImpl.StudentServiceImpl;
 
-import javax.xml.validation.Schema;
 import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or

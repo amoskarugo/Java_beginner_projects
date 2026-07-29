@@ -1,10 +1,10 @@
-package org.example.service.servicesImpl;
+package org.studentmanagementsystem.service.servicesImpl;
 
-import org.example.Domain.model.Student;
-import org.example.Repo.impl.StudentRepository;
-import org.example.exceptions.StudentNotFound;
-import org.example.exceptions.StudentNullPointerException;
-import org.example.service.StudentService;
+import org.studentmanagementsystem.Domain.model.Student;
+import org.studentmanagementsystem.Repo.impl.StudentRepository;
+import org.studentmanagementsystem.exceptions.StudentNotFound;
+import org.studentmanagementsystem.exceptions.StudentNullPointerException;
+import org.studentmanagementsystem.service.StudentService;
 
 import java.util.List;
 

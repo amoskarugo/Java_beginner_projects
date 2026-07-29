@@ -1,8 +1,8 @@
-package org.example.service.servicesImpl;
+package org.studentmanagementsystem.service.servicesImpl;
 
-import org.example.Domain.model.Course;
-import org.example.Repo.impl.CourseRepository;
-import org.example.service.CourseService;
+import org.studentmanagementsystem.Domain.model.Course;
+import org.studentmanagementsystem.Repo.impl.CourseRepository;
+import org.studentmanagementsystem.service.CourseService;
 
 import java.util.List;
 

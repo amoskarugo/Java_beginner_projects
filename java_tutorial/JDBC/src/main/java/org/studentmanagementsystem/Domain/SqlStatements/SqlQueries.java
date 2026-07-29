@@ -1,4 +1,4 @@
-package org.example.Domain.SqlStatements;
+package org.studentmanagementsystem.Domain.SqlStatements;
 
 public class SqlQueries {
     private  SqlQueries() {

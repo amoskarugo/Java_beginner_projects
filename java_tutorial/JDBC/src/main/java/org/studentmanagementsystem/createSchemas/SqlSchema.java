@@ -1,6 +1,6 @@
-package org.example.createSchemas;
+package org.studentmanagementsystem.createSchemas;
 
-import org.example.config.DatabaseConfig;
+import org.studentmanagementsystem.config.DatabaseConfig;
 
 import java.io.IOException;
 import java.nio.file.Files;

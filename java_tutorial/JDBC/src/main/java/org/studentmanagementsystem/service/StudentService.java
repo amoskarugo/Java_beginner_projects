@@ -1,6 +1,6 @@
-package org.example.service;
+package org.studentmanagementsystem.service;
 
-import org.example.Domain.model.Student;
+import org.studentmanagementsystem.Domain.model.Student;
 
 import java.util.List;
 

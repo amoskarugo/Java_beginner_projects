@@ -1,10 +1,10 @@
-package org.example.Repo.impl;
+package org.studentmanagementsystem.Repo.impl;
 
-import org.example.Domain.SqlStatements.SqlQueries;
-import org.example.Domain.model.Course;
-import org.example.Repo.CourseRepoInterface;
-import org.example.config.DatabaseConfig;
-import org.example.exceptions.CourseNotFoundException;
+import org.studentmanagementsystem.Domain.SqlStatements.SqlQueries;
+import org.studentmanagementsystem.Domain.model.Course;
+import org.studentmanagementsystem.Repo.CourseRepoInterface;
+import org.studentmanagementsystem.config.DatabaseConfig;
+import org.studentmanagementsystem.exceptions.CourseNotFoundException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,10 +1,10 @@
-package org.example.Repo.impl;
+package org.studentmanagementsystem.Repo.impl;
 
-import org.example.Domain.SqlStatements.SqlQueries;
-import org.example.Domain.model.Student;
-import org.example.Repo.StudentRepoInterface;
-import org.example.config.DatabaseConfig;
-import org.example.exceptions.StudentNotFound;
+import org.studentmanagementsystem.Domain.SqlStatements.SqlQueries;
+import org.studentmanagementsystem.Domain.model.Student;
+import org.studentmanagementsystem.Repo.StudentRepoInterface;
+import org.studentmanagementsystem.config.DatabaseConfig;
+import org.studentmanagementsystem.exceptions.StudentNotFound;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

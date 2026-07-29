@@ -1,6 +1,4 @@
-package org.example.config;
-
-import org.example.Domain.model.Course;
+package org.studentmanagementsystem.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

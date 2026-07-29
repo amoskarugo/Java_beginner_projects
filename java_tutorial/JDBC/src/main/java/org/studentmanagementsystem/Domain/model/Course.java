@@ -1,4 +1,4 @@
-package org.example.Domain.model;
+package org.studentmanagementsystem.Domain.model;
 
 public class Course {
 
