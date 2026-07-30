@@ -9,7 +9,7 @@ public class SqlQueries {
         public static final String createStudentTable =
                 "CREATE TABLE IF NOT EXISTS student (id SERIAL PRIMARY KEY, name VARCHAR(50), email VARCHAR(50))";
         public static final String insertIntoStudent =
-                "INSERT INTO student (name, email) VALUES (?, ?)";
+                "INSERT INTO student (name, email) VALUES (?, ?) RETURNING id";
         public static final String selectStudentById =
                 "SELECT * FROM student WHERE id = ?";
         public static final String deleteStudentById =

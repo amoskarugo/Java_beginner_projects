@@ -59,7 +59,12 @@ public class Main {
 
         // UPDATING STUDENT
 
-        Student updatedStudent = new Student("Margret", "wanjiru@gmail.com");
+        Student updatedStudent = new Student("Ian Ambani", "ambaniIan@gmail.com");
+        if (studentService.saveStudent(updatedStudent)){
+            System.out.println("student created");
+        }else{
+            System.out.println("failed to create student");
+        }
 
 //        int id = 9;
 //        if (studentService.updateStudentById(updatedStudent, id)){

@@ -24,6 +24,7 @@ public class StudentServiceImpl implements StudentService {
         if (student == null) {
             throw new StudentNullPointerException("student cannot be null!");
         }
+
         return studentRepo.createStudent(student) > 0;
 
     }

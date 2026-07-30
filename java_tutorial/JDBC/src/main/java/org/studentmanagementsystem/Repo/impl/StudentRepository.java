@@ -17,21 +17,26 @@ public class StudentRepository implements StudentRepoInterface {
 
     private static final Connection con = DatabaseConfig.getDbConnection();
     private static PreparedStatement ps;
+    private static ResultSet rs;
 
     @Override
     public int createStudent(Student student) {
-        int rowsAffected = 0;
         try {
             ps = con.prepareStatement(SqlQueries.StudentQuery.insertIntoStudent);
             ps.setString(1, student.getName());
             ps.setString(2, student.getEmail());
-            rowsAffected = ps.executeUpdate();
-            ps.close();
-            return rowsAffected;
-        }catch (SQLException e){
-            System.out.println("Error in creating new student");
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                int generatedId = rs.getInt("id");
+                rs.close();
+                return generatedId;
+            }
+
+            rs.close();
+            return -1;
+        }catch (SQLException e) {
+            return -1;
         }
-        return rowsAffected;
     }
 
     @Override
