@@ -37,4 +37,12 @@ public class SqlQueries {
         public  static final String selectCourseById =
                 "SELECT * FROM course WHERE id = ?";
     }
+
+    public  static final class EnrollmentQuery{
+        private EnrollmentQuery(){}
+
+        public static final String enrollStudent =
+                "INSERT INTO enrollment (student_id, course_id) VALUES (?, ?)";
+
+    }
 }

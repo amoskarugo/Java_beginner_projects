@@ -59,7 +59,7 @@ public class Main {
 
         // UPDATING STUDENT
 
-        Student updatedStudent = new Student("Ian Ambani", "ambaniIan@gmail.com");
+        Student updatedStudent = new Student("Ian Ambani", "ambaniMiguelIan@gmail.com");
         if (studentService.saveStudent(updatedStudent)){
             System.out.println("student created");
         }else{

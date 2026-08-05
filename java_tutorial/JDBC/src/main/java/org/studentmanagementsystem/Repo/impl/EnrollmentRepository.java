@@ -1,11 +1,13 @@
 package org.studentmanagementsystem.Repo.impl;
 
+import org.studentmanagementsystem.Domain.SqlStatements.SqlQueries;
 import org.studentmanagementsystem.Repo.EnrollmentRepoInterface;
 import org.studentmanagementsystem.config.DatabaseConfig;
 import org.studentmanagementsystem.dto.EnrollmentDetails;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class EnrollmentRepository implements EnrollmentRepoInterface {
 
@@ -19,8 +21,21 @@ public class EnrollmentRepository implements EnrollmentRepoInterface {
         con = DatabaseConfig.getDbConnection();
     }
     @Override
-    public Long enrollStudent(Long student_id, Long course_id) {
-        return 0L;
+    public int enrollStudent(int student_id, int course_id) {
+        int rowsAffected = 0;
+
+        try {
+            ps = con.prepareStatement(SqlQueries.EnrollmentQuery.enrollStudent);
+            ps.setInt(1, student_id);
+            ps.setInt(2, course_id);
+
+            rowsAffected = ps.executeUpdate();
+            ps.close();
+            return rowsAffected;
+
+        }catch (SQLException e) {
+            return rowsAffected;
+        }
     }
 
     @Override
