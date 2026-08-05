@@ -42,7 +42,7 @@ public class SqlQueries {
         private EnrollmentQuery(){}
 
         public static final String enrollStudent =
-                "INSERT INTO enrollment (student_id, course_id) VALUES (?, ?)";
+                "INSERT INTO enrollement (student_id, course_id) VALUES (?, ?)";
 
     }
 }

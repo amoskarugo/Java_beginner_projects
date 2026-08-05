@@ -4,6 +4,7 @@ import org.studentmanagementsystem.Domain.model.Course;
 import org.studentmanagementsystem.Domain.model.Student;
 import org.studentmanagementsystem.createSchemas.SqlSchema;
 import org.studentmanagementsystem.service.servicesImpl.CourseServiceImpl;
+import org.studentmanagementsystem.service.servicesImpl.EnrollmentServiceImpl;
 import org.studentmanagementsystem.service.servicesImpl.StudentServiceImpl;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-    SqlSchema.runCreateSchema();
+    //SqlSchema.runCreateSchema();
 
 
 
@@ -55,16 +56,22 @@ public class Main {
 //       // students.forEach(studentService::saveStudent);
 //        if (studentService.deleteStudentById(3))
 //            System.out.println("Student with id " + 3 + " was deleted!");
+        EnrollmentServiceImpl enrollmentService = new EnrollmentServiceImpl();
+        Student new_student = new Student("amos kinuthia", "amosMiguelIan@gmail.com");
+
+        if (enrollmentService.createEnrollment(new_student, 10)){
+            System.out.println("Enrollment was successful!!!");
+        }else{
+            System.out.println("failed to enroll this student, try again later!");
+        }
 
 
         // UPDATING STUDENT
 
-        Student updatedStudent = new Student("Ian Ambani", "ambaniMiguelIan@gmail.com");
-        if (studentService.saveStudent(updatedStudent)){
-            System.out.println("student created");
-        }else{
-            System.out.println("failed to create student");
-        }
+
+
+
+
 
 //        int id = 9;
 //        if (studentService.updateStudentById(updatedStudent, id)){
