@@ -43,6 +43,7 @@ public class SqlQueries {
 
         public static final String enrollStudent =
                 "INSERT INTO enrollement (student_id, course_id) VALUES (?, ?)";
+        public
 
     }
 }
