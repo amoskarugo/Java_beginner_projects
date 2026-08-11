@@ -42,8 +42,18 @@ public class SqlQueries {
         private EnrollmentQuery(){}
 
         public static final String enrollStudent =
-                "INSERT INTO enrollement (student_id, course_id) VALUES (?, ?)";
-        public
+                "INSERT INTO enrollement " +
+                        "(student_id, course_id)" +
+                        " VALUES (?, ?)";
+        public static final String updateEnrollment =
+                "UPDATE enrollement SET status = ? WHERE student_id = ?";
+
+        public static final String studentEnrollmentDetails =  """
+                SELECT enrollement.enrollment_id, student.name, student.id, course.course_name, enrollement.status, enrollement.enrollment_date
+                FROM student
+                JOIN enrollement ON student.id = enrollement.student_id
+                JOIN course ON enrollement.course_id = course.id
+                WHERE enrollement.student_id = ?""";
 
     }
 }

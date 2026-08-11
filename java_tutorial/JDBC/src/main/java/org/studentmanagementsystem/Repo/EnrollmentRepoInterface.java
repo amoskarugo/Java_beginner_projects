@@ -6,7 +6,7 @@ import org.studentmanagementsystem.dto.EnrollmentDetails;
 public interface EnrollmentRepoInterface {
 
     int enrollStudent(Student student, int course_id);
-    Long updateStudentEnrollment(Long student_id, String status);
-    EnrollmentDetails getStudentEnrollmentDetails(Long student_id);
+    int updateStudentEnrollment(int student_id, String status);
+    EnrollmentDetails getStudentEnrollmentDetails(int student_id);
 
 }

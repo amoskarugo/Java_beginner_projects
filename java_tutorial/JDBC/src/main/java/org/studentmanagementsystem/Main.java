@@ -53,17 +53,26 @@ public class Main {
         );
 
         StudentServiceImpl studentService = new StudentServiceImpl();
+        EnrollmentServiceImpl enrollmentService = new EnrollmentServiceImpl();
+
+        Student updateStudentStatus = studentService.retrieveStudentById(25);
+
+        if (enrollmentService.updateStudentStatus(updateStudentStatus, "DROPPED")){
+            System.out.println("student with id " + updateStudentStatus.getId() + " status was updated");
+        }else {
+            System.out.println("status update failed");
+        }
 //       // students.forEach(studentService::saveStudent);
 //        if (studentService.deleteStudentById(3))
 //            System.out.println("Student with id " + 3 + " was deleted!");
-        EnrollmentServiceImpl enrollmentService = new EnrollmentServiceImpl();
-        Student new_student = new Student("amos kinuthia", "amosMiguelIan@gmail.com");
 
-        if (enrollmentService.createEnrollment(new_student, 10)){
-            System.out.println("Enrollment was successful!!!");
-        }else{
-            System.out.println("failed to enroll this student, try again later!");
-        }
+//        Student new_student = new Student("amos kinuthia", "amosMiguelIan@gmail.com");
+//
+//        if (enrollmentService.createEnrollment(new_student, 10)){
+//            System.out.println("Enrollment was successful!!!");
+//        }else{
+//            System.out.println("failed to enroll this student, try again later!");
+//        }
 
 
         // UPDATING STUDENT

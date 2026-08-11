@@ -43,7 +43,10 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student retrieveStudentById(int id) {
-        return null;
+        Student student = studentRepo.getStudentById(id);
+        if (student == null)
+            throw new StudentNotFound("student with id " + id + " is not found!!");
+        return student;
     }
 
     @Override
