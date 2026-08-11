@@ -44,7 +44,7 @@ public class SqlQueries {
         public static final String enrollStudent =
                 "INSERT INTO enrollement " +
                         "(student_id, course_id)" +
-                        " VALUES (?, ?)";
+                        " VALUES (?, ?) RETURNING enrollment_id";
         public static final String updateEnrollment =
                 "UPDATE enrollement SET status = ? WHERE student_id = ?";
 
@@ -54,6 +54,21 @@ public class SqlQueries {
                 JOIN enrollement ON student.id = enrollement.student_id
                 JOIN course ON enrollement.course_id = course.id
                 WHERE enrollement.student_id = ?""";
+
+
+
+    }
+
+    public static final class semesterQuery {
+        private semesterQuery(){}
+
+        public static final  String selectSemesterId =
+                "SELECT semester_id FROM semester WHERE course_id = ? AND semester_number = 1 AND year_of_study = 1";
+
+        public static final String createProgress =
+                "INSERT INTO student_semester_progress (enrollment_id, semester_id, start_date) VALUES (?, ?, CURRENT_DATE)";
+
+
 
     }
 }

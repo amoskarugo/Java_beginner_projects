@@ -25,22 +25,54 @@ public class EnrollmentRepository implements EnrollmentRepoInterface {
         studentRepo = new StudentRepository();
     }
     @Override
-    public int enrollStudent(Student student, int course_id) {
+    public boolean enrollStudent(Student student, int course_id) {
         int new_student_id = studentRepo.createStudent(student);
-        int rowsAffected = 0;
 
         try {
+            con.setAutoCommit(false);
+            //Step 1: enroll a student and return the enrollment id.
             ps = con.prepareStatement(SqlQueries.EnrollmentQuery.enrollStudent);
             ps.setInt(1, new_student_id);
             ps.setInt(2, course_id);
 
-            rowsAffected = ps.executeUpdate();
+            rs = ps.executeQuery();
+            rs.next();
+            int enrollment_id = rs.getInt("enrollment_id");
+
+            //Step 2: find this course the student has enrolled in, first year first semester
+            //Retrieve semester's id.
+
+            ps = con.prepareStatement(SqlQueries.semesterQuery.selectSemesterId);
+            ps.setInt(1, course_id);
+            rs = ps.executeQuery();
+            rs.next();
+            int semester_id = rs.getInt("semester_id");
+
+
+            // Step 3: create the progress record pointing at that semester
+
+            ps = con.prepareStatement(SqlQueries.semesterQuery.createProgress);
+            ps.setInt(1, enrollment_id);
+            ps.setInt(2, semester_id);
+            int rowsAffected =  ps.executeUpdate();
+
+            con.commit(); //All three processes succeeded.
+            System.out.println("Student enrolled and started at Year 1, Semester 1.");
+
             ps.close();
-            return rowsAffected;
+            return true;
 
         }catch (SQLException e) {
-            return rowsAffected;
+            e.printStackTrace();
+            return false;
+        }finally {
+            try {
+                con.setAutoCommit(true);
+            }catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 
     @Override
@@ -62,7 +94,7 @@ public class EnrollmentRepository implements EnrollmentRepoInterface {
     }
 
     @Override
-    public EnrollmentDetails getStudentEnrollmentDetails(int student_id) {
+    public EnrollmentDetails getEnrollmentDetails(int student_id) {
 
         EnrollmentDetails enrollmentDetails = null;
         try {

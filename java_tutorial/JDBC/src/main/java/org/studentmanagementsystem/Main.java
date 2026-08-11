@@ -3,6 +3,7 @@ package org.studentmanagementsystem;
 import org.studentmanagementsystem.Domain.model.Course;
 import org.studentmanagementsystem.Domain.model.Student;
 import org.studentmanagementsystem.createSchemas.SqlSchema;
+import org.studentmanagementsystem.dto.EnrollmentDetails;
 import org.studentmanagementsystem.service.servicesImpl.CourseServiceImpl;
 import org.studentmanagementsystem.service.servicesImpl.EnrollmentServiceImpl;
 import org.studentmanagementsystem.service.servicesImpl.StudentServiceImpl;
@@ -13,9 +14,7 @@ import java.util.List;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-    //SqlSchema.runCreateSchema();
-
-
+        //SqlSchema.runCreateSchema();
 
 
 //        studentService.createStudent("amos", "karugoamos@gmail.com");
@@ -42,7 +41,6 @@ public class Main {
 //        }
 
 
-
         //CREATING MULTIPLE STUDENTS IN THE DATABASE
         List<Student> students = List.of(
                 new Student("Daniel Kiptoo", "daniel.kiptoo@gmail.com"),
@@ -53,16 +51,22 @@ public class Main {
         );
 
         StudentServiceImpl studentService = new StudentServiceImpl();
+        Student new_student = new Student("Eric macharia", "erico@gmail.com");
+
         EnrollmentServiceImpl enrollmentService = new EnrollmentServiceImpl();
 
-        Student updateStudentStatus = studentService.retrieveStudentById(25);
-
-        if (enrollmentService.updateStudentStatus(updateStudentStatus, "DROPPED")){
-            System.out.println("student with id " + updateStudentStatus.getId() + " status was updated");
+        if (enrollmentService.createEnrollment(new_student, 10)){
+            System.out.println("Enrollment created successfully");
         }else {
-            System.out.println("status update failed");
+            System.out.println("Enrollment creation failed");
         }
-//       // students.forEach(studentService::saveStudent);
+
+
+        Student updateStudentStatus = studentService.retrieveStudentById(25);
+        EnrollmentDetails enrollmentDetails = enrollmentService.getStudentEnrollmentDetails(25);
+        System.out.println(enrollmentDetails);
+
+        //       // students.forEach(studentService::saveStudent);
 //        if (studentService.deleteStudentById(3))
 //            System.out.println("Student with id " + 3 + " was deleted!");
 
@@ -76,10 +80,6 @@ public class Main {
 
 
         // UPDATING STUDENT
-
-
-
-
 
 
 //        int id = 9;
