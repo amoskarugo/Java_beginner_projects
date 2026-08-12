@@ -2,6 +2,7 @@ package org.studentmanagementsystem;
 
 import org.studentmanagementsystem.Domain.model.Course;
 import org.studentmanagementsystem.Domain.model.Student;
+import org.studentmanagementsystem.Repo.impl.CourseRepository;
 import org.studentmanagementsystem.createSchemas.SqlSchema;
 import org.studentmanagementsystem.dto.EnrollmentDetails;
 import org.studentmanagementsystem.service.servicesImpl.CourseServiceImpl;
@@ -14,7 +15,7 @@ import java.util.List;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        SqlSchema.runCreateSchema();
+        //SqlSchema.runCreateSchema();
 
 
 //        studentService.createStudent("amos", "karugoamos@gmail.com");
@@ -64,7 +65,7 @@ public class Main {
 
         Student updateStudentStatus = studentService.retrieveStudentById(25);
         EnrollmentDetails enrollmentDetails = enrollmentService.getStudentEnrollmentDetails(25);
-        System.out.println(enrollmentDetails);
+       // System.out.println(enrollmentDetails);
 
         //       // students.forEach(studentService::saveStudent);
 //        if (studentService.deleteStudentById(3))
@@ -89,7 +90,7 @@ public class Main {
 //            System.out.println("Student with id " + id + " was not updated!");
 //        }
 
-
+        System.out.println(CourseRepository.getCurrentProgress(30));
         CourseServiceImpl courseService = new CourseServiceImpl();
 //        List<Course> courses = courseService.getAllCourses();
         Course course = new Course("Bachelors Information Technology");

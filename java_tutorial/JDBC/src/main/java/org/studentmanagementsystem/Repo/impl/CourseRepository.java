@@ -2,6 +2,7 @@ package org.studentmanagementsystem.Repo.impl;
 
 import org.studentmanagementsystem.Domain.SqlStatements.SqlQueries;
 import org.studentmanagementsystem.Domain.model.Course;
+import org.studentmanagementsystem.Domain.model.Unit;
 import org.studentmanagementsystem.Repo.CourseRepoInterface;
 import org.studentmanagementsystem.config.DatabaseConfig;
 import org.studentmanagementsystem.dto.Progress;
@@ -112,7 +113,7 @@ public class CourseRepository implements CourseRepoInterface {
         return courses;
     }
 
-    public Progress getCurrentProgress(int studentId) {
+    public static Progress getCurrentProgress(int studentId) {
         Progress progress = null;
 
         try {
@@ -131,5 +132,27 @@ public class CourseRepository implements CourseRepoInterface {
             System.out.println("getting current progress operation failed!!! " + "Error message: " + e.getMessage());
         }
         return progress;
+    }
+
+    public static List<Unit> getUnits(int semester_id) {
+        List<Unit> units  = new ArrayList<>();
+
+        try {
+            ps = connection.prepareStatement(SqlQueries.semesterQuery.selectAllUnitsBySemesterId);
+            ps.setInt(1, semester_id);
+            rs = ps.executeQuery();
+            while(rs.next()) {
+                Unit unit = new Unit();
+                unit.setUnit_id(rs.getInt("unit_id"));
+                unit.setSemester_id(rs.getInt("semester_id"));
+                unit.setUnit_name(rs.getString("unit_name"));
+                units.add(unit);
+            }
+            rs.close();
+            ps.close();
+        }catch (SQLException e){
+            System.out.println("getting current unit operation failed!!! " +  e.getMessage());
+        }
+        return units;
     }
 }

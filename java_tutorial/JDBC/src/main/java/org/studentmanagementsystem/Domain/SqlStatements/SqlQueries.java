@@ -74,6 +74,11 @@ public class SqlQueries {
                 JOIN semester s ON ssp.semester_id = s.semester_id
                 WHERE e.student_id = ? AND ssp.status = 'IN_PROGRESS'
                 """;
+        public static final String selectAllUnitsBySemesterId = """
+                SELECT * FROM unit
+                WHERE semester_id = ?;
+                """;
+
 
 
 
