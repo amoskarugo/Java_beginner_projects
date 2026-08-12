@@ -4,6 +4,7 @@ import org.studentmanagementsystem.Domain.SqlStatements.SqlQueries;
 import org.studentmanagementsystem.Domain.model.Course;
 import org.studentmanagementsystem.Repo.CourseRepoInterface;
 import org.studentmanagementsystem.config.DatabaseConfig;
+import org.studentmanagementsystem.dto.Progress;
 import org.studentmanagementsystem.exceptions.CourseNotFoundException;
 
 import java.sql.Connection;
@@ -111,4 +112,24 @@ public class CourseRepository implements CourseRepoInterface {
         return courses;
     }
 
+    public Progress getCurrentProgress(int studentId) {
+        Progress progress = null;
+
+        try {
+            ps = connection.prepareStatement(SqlQueries.semesterQuery.currentProgress);
+            ps.setInt(1, studentId);
+            rs = ps.executeQuery();
+            while(rs.next()) {
+                progress = new Progress();
+                progress.setProgress_id(rs.getInt("progress_id"));
+                progress.setSemester_id(rs.getInt("semester_id"));
+                progress.setSemester_name(rs.getString("semester_name"));
+            }
+            rs.close();
+
+        }catch (SQLException e) {
+            System.out.println("getting current progress operation failed!!! " + "Error message: " + e.getMessage());
+        }
+        return progress;
+    }
 }

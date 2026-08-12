@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 /*
-* config class that establishes database connection. It is a single to style for creating database connection
+* config class that establishes database connection. It is a single style for creating database connection
 * all fields are private to ensure they are only accessible to this class only
 * A private constructor to prevent instantiation.
 * */

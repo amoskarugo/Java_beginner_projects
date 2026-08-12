@@ -80,3 +80,23 @@ CREATE TABLE IF NOT EXISTS student_semester_progress (
                 REFERENCES semester(semester_id)
                     ON DELETE CASCADE
 );
+
+
+CREATE TABLE IF NOT EXISTS grade (
+    grade_id SERIAL PRIMARY KEY,
+    unit_id INT NOT NULL,
+    progress_id INT NOT NULL,
+    score NUMERIC(5,2),
+    grade_letter VARCHAR(2) NOT NULL,
+    date_recorded TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        CONSTRAINT fk_progress
+                                 FOREIGN KEY (progress_id)
+                                 REFERENCES student_semester_progress(progress_id)
+                                 ON DELETE CASCADE,
+        CONSTRAINT fk_unit
+                                 FOREIGN KEY (unit_id)
+                                 REFERENCES unit(unit_id)
+                                 ON DELETE CASCADE,
+        CONSTRAINT unique_grade_per_unit_per_attempt
+                                 UNIQUE (unit_id, progress_id)
+);

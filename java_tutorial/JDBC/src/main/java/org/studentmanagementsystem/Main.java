@@ -14,7 +14,7 @@ import java.util.List;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //SqlSchema.runCreateSchema();
+        SqlSchema.runCreateSchema();
 
 
 //        studentService.createStudent("amos", "karugoamos@gmail.com");
@@ -55,11 +55,11 @@ public class Main {
 
         EnrollmentServiceImpl enrollmentService = new EnrollmentServiceImpl();
 
-        if (enrollmentService.createEnrollment(new_student, 10)){
-            System.out.println("Enrollment created successfully");
-        }else {
-            System.out.println("Enrollment creation failed");
-        }
+//        if (enrollmentService.createEnrollment(new_student, 10)){
+//            System.out.println("Enrollment created successfully");
+//        }else {
+//            System.out.println("Enrollment creation failed");
+//        }
 
 
         Student updateStudentStatus = studentService.retrieveStudentById(25);

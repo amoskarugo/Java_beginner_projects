@@ -67,8 +67,22 @@ public class SqlQueries {
 
         public static final String createProgress =
                 "INSERT INTO student_semester_progress (enrollment_id, semester_id, start_date) VALUES (?, ?, CURRENT_DATE)";
+        public static final String currentProgress = """
+                SELECT ssp.progress_id, ssp.semester_id, s.semester_name
+                FROM student_semester_progress ssp
+                JOIN enrollement e ON ssp.enrollment_id = e.enrollment_id
+                JOIN semester s ON ssp.semester_id = s.semester_id
+                WHERE e.student_id = ? AND ssp.status = 'IN_PROGRESS'
+                """;
 
 
 
+    }
+    public static final class GradeQuery {
+        private GradeQuery(){}
+
+        public static final String createStudentGrade = """
+                INSERT INTO grade (progress_id, unit_id, score, grade_letter) VALUES (?, ?, ?, ?)
+                """;
     }
 }
