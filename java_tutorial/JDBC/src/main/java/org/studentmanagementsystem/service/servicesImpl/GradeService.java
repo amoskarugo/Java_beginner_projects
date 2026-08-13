@@ -45,11 +45,10 @@ public class GradeService implements GradeInterface {
         }
     }
 
-    @Override
     public void createGrade(int progress_id, int unit_id, BigDecimal score, String letter) {
         int success = gradeRepo.createStudentGrade(progress_id, unit_id, score, letter);
         if (success > 0) {
-            return;
+            System.out.println("Grade created successfully.");
         }else  {
             throw new FailedToCreateGrade("Failed to create grade for this unit " + unit_id);
         }

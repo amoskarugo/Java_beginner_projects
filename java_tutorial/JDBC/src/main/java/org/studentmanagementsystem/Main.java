@@ -7,15 +7,19 @@ import org.studentmanagementsystem.createSchemas.SqlSchema;
 import org.studentmanagementsystem.dto.EnrollmentDetails;
 import org.studentmanagementsystem.service.servicesImpl.CourseServiceImpl;
 import org.studentmanagementsystem.service.servicesImpl.EnrollmentServiceImpl;
+import org.studentmanagementsystem.service.servicesImpl.GradeService;
 import org.studentmanagementsystem.service.servicesImpl.StudentServiceImpl;
 
 import java.util.List;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         //SqlSchema.runCreateSchema();
+
+        Scanner scanner = new Scanner(System.in);
 
 
 //        studentService.createStudent("amos", "karugoamos@gmail.com");
@@ -92,6 +96,8 @@ public class Main {
 
 
         CourseServiceImpl courseService = new CourseServiceImpl();
+        GradeService gradeService = new GradeService();
+        gradeService.enterGradeForStudent(scanner, 28);
 //        List<Course> courses = courseService.getAllCourses();
         Course course = new Course("Bachelors Information Technology");
 //        courses.forEach(System.out::println);
