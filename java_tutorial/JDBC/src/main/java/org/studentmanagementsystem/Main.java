@@ -90,7 +90,7 @@ public class Main {
 //            System.out.println("Student with id " + id + " was not updated!");
 //        }
 
-        System.out.println(CourseRepository.getCurrentProgress(30));
+
         CourseServiceImpl courseService = new CourseServiceImpl();
 //        List<Course> courses = courseService.getAllCourses();
         Course course = new Course("Bachelors Information Technology");

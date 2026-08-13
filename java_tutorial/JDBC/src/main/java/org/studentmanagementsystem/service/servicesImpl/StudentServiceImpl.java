@@ -1,7 +1,9 @@
 package org.studentmanagementsystem.service.servicesImpl;
 
 import org.studentmanagementsystem.Domain.model.Student;
+import org.studentmanagementsystem.Repo.impl.CourseRepository;
 import org.studentmanagementsystem.Repo.impl.StudentRepository;
+import org.studentmanagementsystem.dto.CurrentProgress;
 import org.studentmanagementsystem.exceptions.StudentNotFound;
 import org.studentmanagementsystem.exceptions.StudentNullPointerException;
 import org.studentmanagementsystem.service.StudentService;
@@ -11,9 +13,7 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
 
     StudentRepository studentRepo = new StudentRepository();
-    public StudentServiceImpl(StudentRepository studentRepo) {
-        this.studentRepo = studentRepo;
-    }
+    CourseRepository courseRepo = new CourseRepository();
 
     public StudentServiceImpl() {
     }
@@ -52,6 +52,11 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public boolean updateStudentById(Student student, int id) {
         return studentRepo.updateStudentById(student, id) > 0;
+    }
+
+    @Override
+    public CurrentProgress getStudentCurrentProgress(int student_id) {
+        return courseRepo.getCurrentProgress(student_id);
     }
 }
 

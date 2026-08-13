@@ -5,7 +5,7 @@ import org.studentmanagementsystem.Domain.model.Course;
 import org.studentmanagementsystem.Domain.model.Unit;
 import org.studentmanagementsystem.Repo.CourseRepoInterface;
 import org.studentmanagementsystem.config.DatabaseConfig;
-import org.studentmanagementsystem.dto.Progress;
+import org.studentmanagementsystem.dto.CurrentProgress;
 import org.studentmanagementsystem.exceptions.CourseNotFoundException;
 
 import java.sql.Connection;
@@ -112,16 +112,16 @@ public class CourseRepository implements CourseRepoInterface {
 }
         return courses;
     }
-
-    public static Progress getCurrentProgress(int studentId) {
-        Progress progress = null;
+    @Override
+    public CurrentProgress getCurrentProgress(int studentId) {
+        CurrentProgress progress = null;
 
         try {
             ps = connection.prepareStatement(SqlQueries.semesterQuery.currentProgress);
             ps.setInt(1, studentId);
             rs = ps.executeQuery();
             while(rs.next()) {
-                progress = new Progress();
+                progress = new CurrentProgress();
                 progress.setProgress_id(rs.getInt("progress_id"));
                 progress.setSemester_id(rs.getInt("semester_id"));
                 progress.setSemester_name(rs.getString("semester_name"));
@@ -133,8 +133,8 @@ public class CourseRepository implements CourseRepoInterface {
         }
         return progress;
     }
-
-    public static List<Unit> getUnits(int semester_id) {
+    @Override
+    public List<Unit> getUnits(int semester_id) {
         List<Unit> units  = new ArrayList<>();
 
         try {

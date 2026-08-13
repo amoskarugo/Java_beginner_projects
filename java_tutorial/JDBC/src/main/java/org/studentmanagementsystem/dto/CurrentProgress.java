@@ -1,11 +1,11 @@
 package org.studentmanagementsystem.dto;
 
-public class Progress {
+public class CurrentProgress {
     public int progress_id;
     public int semester_id;
     public String semester_name;
 
-    public Progress() {
+    public CurrentProgress() {
     }
 
     public int getProgress_id() {

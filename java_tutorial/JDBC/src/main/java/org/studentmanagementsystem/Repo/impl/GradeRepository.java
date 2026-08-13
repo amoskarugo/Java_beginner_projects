@@ -38,7 +38,8 @@ public class GradeRepository implements GradeInterface {
             } else {
                 System.out.println("error creating grade: " + e.getMessage());
             }
-            return 0;
+
         }
+        return rowsAffected;
     }
 }
