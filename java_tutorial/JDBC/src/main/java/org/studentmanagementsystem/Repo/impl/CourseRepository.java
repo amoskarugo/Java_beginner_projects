@@ -102,7 +102,7 @@ public class CourseRepository implements CourseRepoInterface {
 
             rs=ps.executeQuery();
             while(rs.next()) {
-                courses.add(new Course(rs.getInt("id"),rs.getString("name")));
+                courses.add(new Course(rs.getInt("id"),rs.getString("course_name")));
             }
             rs.close();
             ps.close();

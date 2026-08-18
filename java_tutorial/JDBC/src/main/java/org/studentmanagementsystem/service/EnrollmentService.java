@@ -6,7 +6,7 @@ import org.studentmanagementsystem.dto.EnrollmentDetails;
 
 public interface EnrollmentService {
 
-    boolean createEnrollment(Student student, int course_id);
+    boolean createEnrollment(int student_id, int course_id);
     boolean updateStudentStatus(Student student, String status);
     EnrollmentDetails getStudentEnrollmentDetails(int student_id);
 }

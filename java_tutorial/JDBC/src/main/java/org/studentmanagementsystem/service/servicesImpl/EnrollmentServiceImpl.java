@@ -20,8 +20,8 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     }
 
     @Override
-    public boolean createEnrollment(Student student, int courseId) {
-        return enrollmentRepo.enrollStudent(student, courseId);
+    public boolean createEnrollment(int student_id, int courseId) {
+        return enrollmentRepo.enrollStudent(student_id, courseId);
     }
 
     @Override
